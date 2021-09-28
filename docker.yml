@@ -1,4 +1,4 @@
-- hosts: ec21
+- hosts: localhost
   become: true
   #gather_facts: false
   name: docker setup
