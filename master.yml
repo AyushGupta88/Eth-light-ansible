@@ -1,0 +1,5 @@
+- name: Include a play after another play
+  import_playbook: /home/ayush/ansible/eth/docker.yml
+- name: Include a play after another play
+  import_playbook: /home/ayush/ansible/eth/eth.yml
+

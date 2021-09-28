@@ -1,0 +1,12 @@
+version: '3'
+services:
+  geth:
+    image: ethereum/client-go:v1.10.5
+    restart: always
+    command: --rinkeby --rpc --rpcaddr 0.0.0.0 --rpcport 8545 --ws --ws.addr 0.0.0.0 --ws.port 8546 --syncmode light --cache=2048 --metrics --pprof --pprof.addr 0.0.0.0 --verbosity 4 --maxpeers=100
+    volumes:
+      - ./data/geth:/root
+    ports:
+      - "7545:8545"
+      - "30304:30303"
+      - "30304:30303/udp"

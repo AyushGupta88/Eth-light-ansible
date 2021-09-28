@@ -1,0 +1,17 @@
+- hosts: ec21
+  become: true
+  gather_facts: false  
+  name: Eth node setup
+  tasks:
+    - name: Creates directory 
+      file:
+        path: /home/ubuntu/opt/ethlight/
+        state: directory       
+    - name: Copy docker-compose files
+      copy:
+        src: "/home/ayush/ansible/eth/docker-compose.yml"
+        dest: "/home/ubuntu/opt/ethlight/"
+    - name: Start eth node using docker-compose up
+      command:
+        cmd:  docker-compose -f /home/ubuntu/opt/ethlight/docker-compose.yml up -d 
+
